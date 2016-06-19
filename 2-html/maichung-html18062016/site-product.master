@@ -1,0 +1,47 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/site.master" AutoEventWireup="true" CodeFile="site-product.master.cs" Inherits="site_product" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <div id="site" class="corner">
+        <div class="container">
+                <a id="A1" href="~/" runat="server"><span class="fa fa-home"></span></a>/
+                <asp:ContentPlaceHolder id="cphSite" runat="server">
+                </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    <div class="container">
+        <div class="wrapper-main">
+            <div id="colAside">
+                <h4 class="title-a">Danh mục sản phẩm</h4>
+                <ul id="menuProducts" class="menu-list menu-level text-uppercase"  data-level="level">
+                    <li>
+                        <a href="#">Ghế Văn Phòng</a>
+                        <ul data-level="level-1">
+                            <li><a href="#">Ghế Quầy Bar Loại 1</a></li>
+                            <li><a href="#">Ghế Quầy Bar Loại 2</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Ghế Quầy Bar</a>
+                        <ul data-level="level-1">
+                            <li><a href="san-pham.aspx">Ghế Quầy Bar Loại 1</a></li>
+                            <li><a href="#">Ghế Quầy Bar Loại 2</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Bàn văn phòng</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="colContent">
+                <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder> 
+            </div>
+        </div>
+    </div>
+</asp:Content>
+
+
