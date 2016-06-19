@@ -1,0 +1,300 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="site.master.cs" Inherits="site" %>
+<%@ Register TagPrefix="asp" Namespace="AjaxControlToolkit" Assembly="AjaxControlToolkit, Version=3.5.40412.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic&subset=latin,vietnamese'
+        rel='stylesheet' type='text/css' />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/ico" href="logo.ico" />
+    <link href="assets/styles/font-awesome.min.css" rel="stylesheet" />
+    <link href="assets/styles/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/styles/uniform-base.css" rel="stylesheet" type="text/css" />
+    <link href="assets/styles/jquery-ui.css" rel="stylesheet" />
+    <link href="assets/styles/slick.css" rel="stylesheet" />
+    <link href="assets/styles/cloud-zoom.css" rel="stylesheet" />
+    <link href="assets/styles/site.css" rel="stylesheet" type="text/css" />
+    <%--<link href="assets/styles/site-repond.css" rel="stylesheet" type="text/css" />--%>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <style type="text/css">
+            .corner
+            { 
+                position: relative; behavior: url(PIE.htc); 
+            }
+            .fullbox-img
+            {
+	            -ms-behavior: url(backgroundsize.min.htc);
+	            behavior: url(backgroundsize.min.htc);
+            }
+        </style>
+        <link href="assets/styles/ie8.css" rel="stylesheet" type="text/css" />
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	    <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE8.js" type="text/javascript"></script>
+    <![endif]-->
+    <title></title>
+    <script src="assets/js/jquery.js" type="text/javascript"></script>
+    <script src="assets/js/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="assets/js/jquery.easing.1.3.js" type="text/javascript"></script>
+    <script src="assets/js/jquery.mb.browser.min.js" type="text/javascript"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <!--active menu-->
+    <script type="text/javascript">
+        function changeActiveMenu(page) {
+            $('#menu li').removeClass("active");
+            $('#menu li a[href*="' + page + '"]').parent("li").addClass("active");
+        }
+        function changeSubActiveMenu(page) {
+            $('.menu-product li').removeClass("active");
+            $('.menu-product li a[href$="' + page + '"]').parents("li").addClass("active");
+            $('.nav-tabs li').removeClass("active");
+            $('.nav-tabs li a[href$="' + page + '"]').parents("li").addClass("active");
+            var value1 = $('a.a-link-sp').attr('href');
+            $('.menu-product li a[href$="' + value1 + '"]').parents("li").addClass("active");
+            $('.menu-level li a[href$="' + value1 + '"]').parents("li").addClass("active");
+            var value2 = $('a.a-link-spct').attr('href');
+            $('.menu-product li a[href$="' + value2 + '"]').parents("li").addClass("active");
+            $('.menu-level li a[href$="' + value2 + '"]').parents("li").addClass("active");
+        }
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+    </asp:ToolkitScriptManager>
+    <div id="wrapper">
+        <div id="wrapper-in">
+            <!--header-->
+            <div id="header">
+                <div class="container">
+                    <div class="hsroll header-left">
+                        <div class="hotline">
+                            <span class="fa fa-phone"></span>Hotline: <strong>094 456 9394</strong>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <div class="follow">
+                            <a href="#">
+                                <img src="assets/images/follow1.png"></a>
+                        </div>
+                        <div class="wrapper-menu">
+                            <ul id="menu" class="desktop-showhide">
+                                <li class="active"><a href="~/" runat="server">Trang chủ</a></li>
+                                <li><a href="gioi-thieu.aspx">Giới thiệu</a></li>
+                                <li class="last"><a href="lien-he.aspx">Liên hệ</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end header-->
+            <hr />
+            <div id="wrapper-main-bg">
+                <div class="container">
+                    <div class="logo">
+                        <a href="~/" runat="server">
+                            <img src="assets/images/logo.png" alt="" /></a></div>
+                    <div class="form-search corner">
+                        <asp:Button ID="Button1" CssClass="search-btn" runat="server" Text="" />
+                        <div class="search-input">
+                            <asp:TextBox ID="TextBox1" CssClass="search-text" runat="server" placeholder="Tìm kiếm sản phẩm"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                    </div>
+                    <div class="menu-product">
+                        <asp:ListView ID="lstMenu" runat="server" DataSourceID="odsMenu" EnableModelValidation="True">
+                            <ItemTemplate>
+                                <li><a class="bwWrapper" href='<%# progressTitle(Eval("ProductCategoryName")) + "-pci-" + Eval("ProductCategoryID") + ".aspx" %>'   >
+                                    <img id="Img1" alt='<%# Eval("ImageName") %>' src='<%# !string.IsNullOrEmpty(Eval("ImageName").ToString()) ? "~/res/productcategory/" + Eval("ImageName") : "~/assets/images/menu1.png" %>' runat="server" /><span><%# Eval("ProductCategoryName") %></span>
+                                </a></li>
+                            </ItemTemplate>
+                            <LayoutTemplate>
+                                <ul>
+                                    <li runat="server" id="itemPlaceholder"></li>
+                                </ul>
+                            </LayoutTemplate>
+                        </asp:ListView>
+                        <asp:ObjectDataSource ID="odsMenu" runat="server" 
+                            SelectMethod="ProductCategorySelectAll" TypeName="TLLib.ProductCategory">
+                            <SelectParameters>
+                                <asp:Parameter DefaultValue="0" Name="parentID" Type="Int32" />
+                                <asp:Parameter DefaultValue="1" Name="increaseLevelCount" Type="Int32" />
+                                <asp:Parameter Name="IsShowOnMenu" Type="String" />
+                                <asp:Parameter Name="IsShowOnHomePage" Type="String" />
+                            </SelectParameters>
+                        </asp:ObjectDataSource>
+                    </div>
+                </div>
+            </div>
+            <div class="banner-bg">
+                <div class="container">
+                    <div id="banner">
+                        <div class="slider-banner">
+                            <asp:ListView ID="lstBanner" runat="server" DataSourceID="odsBanner" EnableModelValidation="True">
+                                <ItemTemplate>
+                                    <div class="slide">
+                                        <img alt='<%# Eval("FileName") %>' src='<%# !string.IsNullOrEmpty(Eval("FileName").ToString()) ? "~/res/advertisement/" + Eval("FileName") : "~/assets/images/banner-img-1.jpg" %>'
+                                            runat="server" />
+                                        <div class="slide-text-bg">
+                                            <div class="text-title">
+                                                <p>
+                                                    <span>
+                                                        <%# Eval("Title") %></span></p>
+                                            </div>
+                                            <div class="text-content">
+                                                <p>
+                                                    <%# Eval("Description")%></p>
+                                            </div>
+                                            <div class="view">
+                                                <a href="san-pham.aspx">Xem ngay</a></div>
+                                        </div>
+                                    </div>
+                                </ItemTemplate>
+                                <LayoutTemplate>
+                                    <span runat="server" id="itemPlaceholder" />
+                                </LayoutTemplate>
+                            </asp:ListView>
+                            <asp:ObjectDataSource ID="odsBanner" runat="server" SelectMethod="AdsBannerSelectAll"
+                                TypeName="TLLib.AdsBanner">
+                                <SelectParameters>
+                                    <asp:Parameter Name="StartRowIndex" Type="String" />
+                                    <asp:Parameter Name="EndRowIndex" Type="String" />
+                                    <asp:Parameter DefaultValue="5" Name="AdsCategoryID" Type="String" />
+                                    <asp:Parameter Name="CompanyName" Type="String" />
+                                    <asp:Parameter Name="Website" Type="String" />
+                                    <asp:Parameter Name="FromDate" Type="String" />
+                                    <asp:Parameter Name="ToDate" Type="String" />
+                                    <asp:Parameter DefaultValue="True" Name="IsAvailable" Type="String" />
+                                    <asp:Parameter Name="Priority" Type="String" />
+                                    <asp:Parameter DefaultValue="True" Name="SortByPriority" Type="String" />
+                                </SelectParameters>
+                            </asp:ObjectDataSource>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--main-->
+            <div id="mainContent">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <!--end main-->
+            <hr />
+            <div id="footer-top">
+                <div class="container">
+                    <div class="row ft-contact-bg">
+                        <asp:ListView ID="lstNews" runat="server" DataSourceID="odsNews" EnableModelValidation="True">
+                            <ItemTemplate>
+                                <div class="col-md-3">
+                                    <div class="ft-contact">
+                                        <a href='<%# progressTitle(Eval("ArticleTitle")) + "-tt-" + Eval("ArticleID") + ".aspx" %>'>
+                                            <img alt='<%# Eval("ImageName") %>' src='<%# !string.IsNullOrEmpty(Eval("ImageName").ToString()) ? "~/res/article/" + Eval("ImageName") : "~/assets/images/icon1.png" %>' runat="server" />
+                                            <span><%# Eval("ArticleTitle")%></span> </a>
+                                    </div>
+                                </div>
+                            </ItemTemplate>
+                            <LayoutTemplate>
+                                <span runat="server" id="itemPlaceholder" />
+                            </LayoutTemplate>
+                        </asp:ListView>
+                        <asp:ObjectDataSource ID="odsNews" runat="server" 
+                            SelectMethod="ArticleSelectAll" TypeName="TLLib.Article">
+                            <SelectParameters>
+                                <asp:Parameter Name="StartRowIndex" Type="String" />
+                                <asp:Parameter Name="EndRowIndex" Type="String" />
+                                <asp:Parameter Name="Keyword" Type="String" />
+                                <asp:Parameter Name="ArticleTitle" Type="String" />
+                                <asp:Parameter Name="Description" Type="String" />
+                                <asp:Parameter DefaultValue="2" Name="ArticleCategoryID" Type="String" />
+                                <asp:Parameter Name="Tag" Type="String" />
+                                <asp:Parameter Name="IsShowOnHomePage" Type="String" />
+                                <asp:Parameter Name="IsHot" Type="String" />
+                                <asp:Parameter Name="IsNew" Type="String" />
+                                <asp:Parameter Name="FromDate" Type="String" />
+                                <asp:Parameter Name="ToDate" Type="String" />
+                                <asp:Parameter DefaultValue="True" Name="IsAvailable" Type="String" />
+                                <asp:Parameter Name="Priority" Type="String" />
+                                <asp:Parameter DefaultValue="True" Name="SortByPriority" Type="String" />
+                            </SelectParameters>
+                        </asp:ObjectDataSource>
+                    </div>
+                </div>
+            </div>
+            <!--footer-->
+            <div id="footer">
+                <div class="container">
+                    <div class="footer-center">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="logo">
+                                    <a href="#">
+                                        <img src="assets/images/logo.png" alt="logo" /></a></div>
+                            </div>
+                            <div class="col-md-5">
+                                <ul class="address">
+                                    <li><span class="fa fa-map-marker"></span>139 Ngô Gia Tự, Phương 2, Quận 10, Tp.HCM</li>
+                                    <li><span class="fa fa-phone"></span>094 456 9394 </li>
+                                    <li><span class="fa fa-envelope"></span><a href="mailto:sales@maichung.vn">sales@maichung.vn</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="follow-ft">
+                                    <span>Follow us </span><a href="#">
+                                        <img src="assets/images/follow2.png"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container ">
+                    <div class="row">
+                        <div class="col-md-6 footer-menu">
+                            <a class="home" href="~/" runat="server">Trang chủ</a>|<a href="#">Giới thiệu</a>|<a
+                                href="#">Liên hệ</a>
+                        </div>
+                        <div class="col-md-6">
+                            &copy; 2015 - Mai Chung Furniture. All right reserved | <a href="http://wwww.tranlegroup.com"
+                                target="_blank">Thiết kế web</a> <a href="http://wwww.tranlegroup.com" target="_blank">
+                                    Trần Lê</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end footer-->
+    </div>
+    <!--menumobile-->
+    <!--menumobile-->
+    <div id="sroltop">
+        <a class="corner" href="javascript:void(0);"><span class="glyphicon glyphicon-chevron-up">
+        </span></a>
+    </div>
+    <!--active-->
+    <div id="runScript" runat="server">
+    </div>
+    <script src="assets/js/imagesloaded.pkgd.min.js" type="text/javascript"></script>
+    <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="assets/js/jquery.uniform.min.js" type="text/javascript"></script>
+    <script src="assets/js/isotope.pkgd.min.js" type="text/javascript"></script>
+    <script src="assets/js/jquery.panel.mobile.js" type="text/javascript"></script>
+    <script src="assets/js/jquery.menu.level.js" type="text/javascript"></script>
+    <script src="assets/js/jquery.textheight.js" type="text/javascript"></script>
+    <script src="assets/js/jquery-ui.js"></script>
+    <script src="assets/js/jquery.BlackAndWhite.min.js"></script>
+    <script src="assets/js/jquery.bgbox.js" type="text/javascript"></script>
+    <script src="assets/js/slick.min.js" type="text/javascript"></script>
+    <script src="assets/js/cloud-zoom.js" type="text/javascript"></script>
+    <script src="assets/js/jquery.main.js" type="text/javascript"></script>
+    <%--<script src="assets/js/jquery-1.4.1.min.js"></script>--%>
+    </form>
+</body>
+</html>
