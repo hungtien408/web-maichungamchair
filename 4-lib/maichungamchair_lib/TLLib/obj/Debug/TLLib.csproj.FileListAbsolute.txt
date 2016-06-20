@@ -52,3 +52,10 @@ E:\Website\web-maichungamchair\4-lib\maichungamchair_lib\TLLib\bin\Debug\itextsh
 E:\Website\web-maichungamchair\4-lib\maichungamchair_lib\TLLib\obj\Debug\TLLib.csprojResolveAssemblyReference.cache
 E:\Website\web-maichungamchair\4-lib\maichungamchair_lib\TLLib\obj\Debug\TLLib.dll
 E:\Website\web-maichungamchair\4-lib\maichungamchair_lib\TLLib\obj\Debug\TLLib.pdb
+E:\Tien\Website\maichungamchair\4-lib\maichungamchair_lib\TLLib\bin\Debug\TLLib.dll
+E:\Tien\Website\maichungamchair\4-lib\maichungamchair_lib\TLLib\bin\Debug\TLLib.pdb
+E:\Tien\Website\maichungamchair\4-lib\maichungamchair_lib\TLLib\bin\Debug\ICSharpCode.SharpZipLib.dll
+E:\Tien\Website\maichungamchair\4-lib\maichungamchair_lib\TLLib\bin\Debug\itextsharp.dll
+E:\Tien\Website\maichungamchair\4-lib\maichungamchair_lib\TLLib\obj\Debug\TLLib.csprojResolveAssemblyReference.cache
+E:\Tien\Website\maichungamchair\4-lib\maichungamchair_lib\TLLib\obj\Debug\TLLib.dll
+E:\Tien\Website\maichungamchair\4-lib\maichungamchair_lib\TLLib\obj\Debug\TLLib.pdb

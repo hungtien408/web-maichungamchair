@@ -152,6 +152,8 @@ public partial class ad_single_product : System.Web.UI.Page
         {
             string OldImageName;
             var oProduct = new Product();
+            var oProductImage = new ProductImage();
+            var oProductDownload = new ProductDownload();
 
             string errorList = "", ProductName = "";
 
@@ -161,6 +163,8 @@ public partial class ad_single_product : System.Web.UI.Page
                 {
                     var ProductID = item.GetDataKeyValue("ProductID").ToString();
                     ProductName = item["ProductName"].Text;
+                    oProductImage.ProductImageDeleteByProduct(ProductID);
+                    oProductDownload.ProductDownloadDeleteByProduct(ProductID);
                     oProduct.ProductDelete(ProductID);
 
                     OldImageName = ((HiddenField)item.FindControl("hdnImageName")).Value;

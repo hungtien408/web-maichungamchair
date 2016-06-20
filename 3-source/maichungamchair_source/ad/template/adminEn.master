@@ -137,6 +137,9 @@
                             </asp:RadMenuItem>
                         </Items>
                     </asp:RadMenuItem>
+                    <asp:RadMenuItem runat="server" Text="Liên Hệ" PostBack="False" Font-Bold="True"
+                        NavigateUrl="~/ad/single/contact.aspx">
+                    </asp:RadMenuItem>
                     <asp:RadMenuItem runat="server" Text="Banner" PostBack="False" Font-Bold="True"
                         NavigateUrl="~/ad/single/bannermain.aspx">
                     </asp:RadMenuItem>

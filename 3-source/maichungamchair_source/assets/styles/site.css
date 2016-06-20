@@ -663,24 +663,29 @@ body .mobilep-right {
         text-decoration:none;
         color:#000;
     }
+    .menu-product li a span {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 5px 0;
+    }
 .menu-product img {
     display: block;
     margin:0 auto;
 }
 .menu-product li:hover span, .menu-product li:focus span, .menu-product li.active span{
     border-bottom: 2px solid #ff3333;
-    padding: 5px 0;
 }
     .menu-product li.active a > img{
      filter: grayscale(0);
     }
 /*===============banner===============*/
 .slide-text-bg {
-    left: 35%;
     line-height: 26px;
     position: absolute;
     text-align: center;
-    top: 18%;
+    width: 100%;
+    top: 16%;
 }
 .text-title {
     color:#000;

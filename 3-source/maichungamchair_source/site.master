@@ -101,9 +101,10 @@
                         <a href="~/" runat="server">
                             <img src="assets/images/logo.png" alt="" /></a></div>
                     <div class="form-search corner">
-                        <asp:Button ID="Button1" CssClass="search-btn" runat="server" Text="" />
+                        <asp:Button ID="btnTimKiem" CssClass="search-btn" runat="server" Text="" OnClick="btnTimKiem_Click" />
                         <div class="search-input">
-                            <asp:TextBox ID="TextBox1" CssClass="search-text" runat="server" placeholder="Tìm kiếm sản phẩm"></asp:TextBox>
+                            <asp:TextBox ID="searchTextBox" CssClass="search-text" runat="server" Text="Tìm kiếm sản phẩm..."
+                                    onfocus="if(this.value=='Tìm kiếm sản phẩm...')this.value=''" onblur="if(this.value=='')this.value='Tìm kiếm sản phẩm...'"></asp:TextBox>
                         </div>
                     </div>
                     <div class="clearfix">
@@ -238,11 +239,42 @@
                                         <img src="assets/images/logo.png" alt="logo" /></a></div>
                             </div>
                             <div class="col-md-5">
-                                <ul class="address">
-                                    <li><span class="fa fa-map-marker"></span>139 Ngô Gia Tự, Phương 2, Quận 10, Tp.HCM</li>
-                                    <li><span class="fa fa-phone"></span>094 456 9394 </li>
-                                    <li><span class="fa fa-envelope"></span><a href="mailto:sales@maichung.vn">sales@maichung.vn</a></li>
-                                </ul>
+                                <asp:ListView ID="lstContact" runat="server" DataSourceID="odsContact" EnableModelValidation="True">
+                                    <ItemTemplate>
+                                        <ul class="address">
+                                            <li><span class="fa fa-map-marker"></span>
+                                                <%# Eval("MetaTittle") %></li>
+                                            <li><span class="fa fa-phone"></span>
+                                                <%# Eval("MetaDescription")%>
+                                            </li>
+                                            <li><span class="fa fa-envelope"></span><a href='<%# "mailto:" + Eval("ArticleTitle")%>'>
+                                                <%# Eval("ArticleTitle")%></a></li>
+                                        </ul>
+                                    </ItemTemplate>
+                                    <LayoutTemplate>
+                                        <span runat="server" id="itemPlaceholder" />
+                                    </LayoutTemplate>
+                                </asp:ListView>
+                                <asp:ObjectDataSource ID="odsContact" runat="server" SelectMethod="ArticleSelectAll"
+                                    TypeName="TLLib.Article">
+                                    <SelectParameters>
+                                        <asp:Parameter DefaultValue="1" Name="StartRowIndex" Type="String" />
+                                        <asp:Parameter DefaultValue="1" Name="EndRowIndex" Type="String" />
+                                        <asp:Parameter Name="Keyword" Type="String" />
+                                        <asp:Parameter Name="ArticleTitle" Type="String" />
+                                        <asp:Parameter Name="Description" Type="String" />
+                                        <asp:Parameter DefaultValue="3" Name="ArticleCategoryID" Type="String" />
+                                        <asp:Parameter Name="Tag" Type="String" />
+                                        <asp:Parameter Name="IsShowOnHomePage" Type="String" />
+                                        <asp:Parameter Name="IsHot" Type="String" />
+                                        <asp:Parameter Name="IsNew" Type="String" />
+                                        <asp:Parameter Name="FromDate" Type="String" />
+                                        <asp:Parameter Name="ToDate" Type="String" />
+                                        <asp:Parameter DefaultValue="True" Name="IsAvailable" Type="String" />
+                                        <asp:Parameter Name="Priority" Type="String" />
+                                        <asp:Parameter DefaultValue="True" Name="SortByPriority" Type="String" />
+                                    </SelectParameters>
+                                </asp:ObjectDataSource>
                             </div>
                             <div class="col-md-4">
                                 <div class="follow-ft">
@@ -262,9 +294,8 @@
                                 href="#">Liên hệ</a>
                         </div>
                         <div class="col-md-6">
-                            &copy; 2015 - Mai Chung Furniture. All right reserved | <a href="http://wwww.tranlegroup.com"
-                                target="_blank">Thiết kế web</a> <a href="http://wwww.tranlegroup.com" target="_blank">
-                                    Trần Lê</a>
+                            &copy; 2015 - Mai Chung Furniture. All right reserved | <a href="http://www.tranlegroup.com"
+                                target="_blank">Thiết kế web Trần Lê</a> 
                         </div>
                     </div>
                 </div>

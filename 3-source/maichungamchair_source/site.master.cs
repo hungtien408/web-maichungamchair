@@ -38,4 +38,9 @@ public partial class site : System.Web.UI.MasterPage
     {
         return Common.ConvertTitle(input.ToString());
     }
+    protected void btnTimKiem_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("tim-kiem.aspx?kw=" + searchTextBox.Text.Trim());
+        //Response.Redirect("tim-kiem.aspx?dm=" + DropDownList1.SelectedValue + "&kw=" + searchTextBox.Text.Trim());
+    }
 }
