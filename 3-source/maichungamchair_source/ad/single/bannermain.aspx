@@ -274,7 +274,7 @@
                             <%# Eval("CompanyName")%>
                         </ItemTemplate>
                     </asp:GridTemplateColumn>
-                    <asp:GridTemplateColumn HeaderText="Tiêu đề" DataField="Title" SortExpression="Title">
+                    <asp:GridTemplateColumn HeaderText="Tiêu đề" DataField="Title" SortExpression="Title" Visible="False">
                         <ItemTemplate>
                             <%# Eval("Title")%>
                         </ItemTemplate>
@@ -402,7 +402,7 @@
                                             Width="500px"></asp:TextBox>
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr class="invisible">
                                     <td class="left" valign="top">
                                         Title
                                     </td>
@@ -411,7 +411,7 @@
                                             Width="500px"></asp:TextBox>
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr class="invisible">
                                     <td class="left" valign="top">
                                         Description
                                     </td>

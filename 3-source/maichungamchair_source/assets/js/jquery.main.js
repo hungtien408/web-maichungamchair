@@ -33,7 +33,7 @@ function myfunload() {
         $(".menu-level .active").find("ul:first").show();
     }
     $(".nav-tabs > li > a").append('<span class="arrow-down"></span>');
-    //$(".nav-tabs li:first-child").addClass("active");
+    $(".nav-tabs li:first-child").addClass("active");
     $('.slider-banner').slick({
         dots: false,
         arrows: true,
@@ -124,21 +124,18 @@ function myfunload() {
             jQuery('.cloud-zoom').CloudZoom();
         });
     }
-    $('.bwWrapper').BlackAndWhite({
-        hoverEffect: true,
-        webworkerPath: 'assets/js/',
-        intensity: 1,
-        onImageReady: function (img) {
-            $(img).parent().animate({
-                opacity: 1
-            });
-        }
-    });
     $('#projectTab').tabs();
     if ($('#mapshow').size() == 1) {
         mymap();
     }
     myfunsroll();
+    setHeigthImageOnTab();
+    //handle when switch the tabs
+    $('a[data-toggle="tab"]').off('shown.bs.tab');
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function () {
+        setHeigthImageOnTab();
+    });
+
 }
 /*=========================================================================*/
 function mypageload() {
@@ -168,8 +165,30 @@ function myListTb() {
             }, 100);
         });
     }
-
-    
+}
+/*==============================*/
+function setHeigthImageOnTab() {
+    if ($('.product-tab').size() > 0) {
+        var producttab = $('.product-tab').imagesLoaded(function () {
+            producttab.textHeight({
+                activetit: true,
+                listcss: [{ cssname: ".product-img" }, { cssname: ".product-box" }, { cssname: ".product-name" }],
+                wpointb: true,
+                //widthpont: 479,
+                desbool: false,
+                listpos: [{ cssnamepos: ".description", cssheightnum: "3" }],
+                tbrow: true,
+                csstr: ".element-item",
+                max: true
+            });
+            setTimeout(function () {
+                producttab.isotope({
+                    itemSelector: '.element-item',
+                    layoutMode: 'fitRows'
+                });
+            }, 100);
+        });
+    }
 }
 /*===============================*/
 function myfunsroll() {

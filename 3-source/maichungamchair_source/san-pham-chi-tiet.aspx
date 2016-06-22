@@ -29,8 +29,9 @@
                             <LayoutTemplate>
                                 <div class="detailimg-desktop">
                                     <div class="zoom-box">
-                                        <a id="zoom1" href="assets/images/details-big-2.jpg" class="cloud-zoom" rel="showTitle: false, zoomWidth: '350', adjustY:0, adjustX:5">
-                                            <img class="img-responsive" src="assets/images/details-img-2.jpg" alt="" />
+                                        <a id="zoom1" href='<%# !string.IsNullOrEmpty(Eval("ImageName").ToString()) ? "~/res/product/album/" + Eval("ImageName") : "~/assets/images/details-big-1.jpg" %>' class="cloud-zoom" rel="showTitle: false, zoomWidth: '350', adjustY:0, adjustX:5">
+                                            <img class="img-responsive" alt='<%# Eval("ImageName") %>' src='<%# !string.IsNullOrEmpty(Eval("ImageName").ToString()) ? "~/res/product/album/" + Eval("ImageName") : "~/assets/images/details-img-2.jpg" %>'
+                                        runat="server" />
                                         </a>
                                     </div>
                                 </div>

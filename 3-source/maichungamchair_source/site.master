@@ -17,6 +17,7 @@
     <link href="assets/styles/slick.css" rel="stylesheet" />
     <link href="assets/styles/cloud-zoom.css" rel="stylesheet" />
     <link href="assets/styles/site.css" rel="stylesheet" type="text/css" />
+    <link href="assets/styles/site-repond.css" rel="stylesheet" />
     <%--<link href="assets/styles/site-repond.css" rel="stylesheet" type="text/css" />--%>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -75,16 +76,17 @@
                 <div class="container">
                     <div class="hsroll header-left">
                         <div class="hotline">
-                            <span class="fa fa-phone"></span>Hotline: <strong>094 456 9394</strong>
+                            <span class="fa fa-phone"></span>Hotline: <strong>0122 222 9056</strong>
                         </div>
                     </div>
                     <div class="header-right">
+                        <a class="panel-a menu-mo mobi-520" href="#menumobile" data-position="true" data-type="false"><span class="fa fa-reorder"></span>menu</a>
                         <div class="follow">
                             <a href="#">
                                 <img src="assets/images/follow1.png"></a>
                         </div>
-                        <div class="wrapper-menu">
-                            <ul id="menu" class="desktop-showhide">
+                        <div class="wrapper-menu desktop-520">
+                            <ul id="menu">
                                 <li class="active"><a href="~/" runat="server">Trang chủ</a></li>
                                 <li><a href="gioi-thieu.aspx">Giới thiệu</a></li>
                                 <li class="last"><a href="lien-he.aspx">Liên hệ</a></li>
@@ -109,10 +111,10 @@
                     </div>
                     <div class="clearfix">
                     </div>
-                    <div class="menu-product">
+                    <div class="menu-product desktop-520">
                         <asp:ListView ID="lstMenu" runat="server" DataSourceID="odsMenu" EnableModelValidation="True">
                             <ItemTemplate>
-                                <li><a class="bwWrapper" href='<%# progressTitle(Eval("ProductCategoryName")) + "-pci-" + Eval("ProductCategoryID") + ".aspx" %>'   >
+                                <li><a href='<%# progressTitle(Eval("ProductCategoryName")) + "-pci-" + Eval("ProductCategoryID") + ".aspx" %>'   >
                                     <img id="Img1" alt='<%# Eval("ImageName") %>' src='<%# !string.IsNullOrEmpty(Eval("ImageName").ToString()) ? "~/res/productcategory/" + Eval("ImageName") : "~/assets/images/menu1.png" %>' runat="server" /><span><%# Eval("ProductCategoryName") %></span>
                                 </a></li>
                             </ItemTemplate>
@@ -143,7 +145,7 @@
                                     <div class="slide">
                                         <img alt='<%# Eval("FileName") %>' src='<%# !string.IsNullOrEmpty(Eval("FileName").ToString()) ? "~/res/advertisement/" + Eval("FileName") : "~/assets/images/banner-img-1.jpg" %>'
                                             runat="server" />
-                                        <div class="slide-text-bg">
+                                        <%--<div class="slide-text-bg">
                                             <div class="text-title">
                                                 <p>
                                                     <span>
@@ -155,7 +157,7 @@
                                             </div>
                                             <div class="view">
                                                 <a href="san-pham.aspx">Xem ngay</a></div>
-                                        </div>
+                                        </div>--%>
                                     </div>
                                 </ItemTemplate>
                                 <LayoutTemplate>
@@ -193,7 +195,7 @@
                     <div class="row ft-contact-bg">
                         <asp:ListView ID="lstNews" runat="server" DataSourceID="odsNews" EnableModelValidation="True">
                             <ItemTemplate>
-                                <div class="col-md-3">
+                                <div class="col-md-3 col-sm-6 col-xs-6">
                                     <div class="ft-contact">
                                         <a href='<%# progressTitle(Eval("ArticleTitle")) + "-tt-" + Eval("ArticleID") + ".aspx" %>'>
                                             <img alt='<%# Eval("ImageName") %>' src='<%# !string.IsNullOrEmpty(Eval("ImageName").ToString()) ? "~/res/article/" + Eval("ImageName") : "~/assets/images/icon1.png" %>' runat="server" />
@@ -304,6 +306,42 @@
         <!--end footer-->
     </div>
     <!--menumobile-->
+         <div id="menumobile" class="mobile-panel mobilep-left">
+            <div class="close-menu"><a href="#menumobile" class="glyphicon glyphicon-remove-circle">close</a></div>
+            <div class="menu-in">
+                <div class="menu-mobile">
+                    <div class="logo"><a id="A1"  href="~/" runat="server"><img class="img-responsive" src="assets/images/logo.png" alt="logo"/></a></div>
+                    <ul class="menu-nav">  
+                        <li><a id="A2" href="~/" runat="server">Trang chủ<span class="iconar fa fa-chevron-circle-right"></span></a></li>
+                        <li><a href="gioi-thieu.aspx">Giới thiệu<span class="iconar fa fa-chevron-circle-right"></span></a></li>
+                        <li><a href="san-pham.aspx">Sản phẩm<span class="iconar fa fa-chevron-circle-right"></span></a>
+                            <asp:ListView ID="lstMenuMobile" runat="server" DataSourceID="odsMenuMobile" EnableModelValidation="True">
+                            <ItemTemplate>
+                                <li><a href='<%# progressTitle(Eval("ProductCategoryName")) + "-pci-" + Eval("ProductCategoryID") + ".aspx" %>'>
+                                    <%# Eval("ProductCategoryName") %>
+                                </a></li>
+                            </ItemTemplate>
+                            <LayoutTemplate>
+                                <ul>
+                                    <li runat="server" id="itemPlaceholder"></li>
+                                </ul>
+                            </LayoutTemplate>
+                        </asp:ListView>
+                        <asp:ObjectDataSource ID="odsMenuMobile" runat="server" 
+                            SelectMethod="ProductCategorySelectAll" TypeName="TLLib.ProductCategory">
+                            <SelectParameters>
+                                <asp:Parameter DefaultValue="0" Name="parentID" Type="Int32" />
+                                <asp:Parameter DefaultValue="1" Name="increaseLevelCount" Type="Int32" />
+                                <asp:Parameter Name="IsShowOnMenu" Type="String" />
+                                <asp:Parameter Name="IsShowOnHomePage" Type="String" />
+                            </SelectParameters>
+                        </asp:ObjectDataSource>
+                        </li>
+                        <li><a href="lien-he.aspx">Liên hệ<span class="iconar fa fa-chevron-circle-right"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     <!--menumobile-->
     <div id="sroltop">
         <a class="corner" href="javascript:void(0);"><span class="glyphicon glyphicon-chevron-up">
@@ -320,12 +358,10 @@
     <script src="assets/js/jquery.menu.level.js" type="text/javascript"></script>
     <script src="assets/js/jquery.textheight.js" type="text/javascript"></script>
     <script src="assets/js/jquery-ui.js"></script>
-    <script src="assets/js/jquery.BlackAndWhite.min.js"></script>
     <script src="assets/js/jquery.bgbox.js" type="text/javascript"></script>
     <script src="assets/js/slick.min.js" type="text/javascript"></script>
     <script src="assets/js/cloud-zoom.js" type="text/javascript"></script>
     <script src="assets/js/jquery.main.js" type="text/javascript"></script>
-    <%--<script src="assets/js/jquery-1.4.1.min.js"></script>--%>
     </form>
 </body>
 </html>

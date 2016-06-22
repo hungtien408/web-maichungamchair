@@ -13,11 +13,11 @@
         <ItemTemplate>
             <div class="col-xs-4 element-item">
                 <div class="product-box text-center scale-animate">
-                    <div class="icon-hot">
+                    <%--<div class="icon-hot">
                         <%# Eval("IsHot").ToString().Equals("True") ? "<img class='img-responsive' src='assets/images/icon-hot.png' alt='' />" : "" %>
-                        <%# Eval("IsNew").ToString().Equals("True") ? "<img class='img-responsive' src='assets/images/icon-new.png' alt='' />" : "" %></div>
+                        <%# Eval("IsNew").ToString().Equals("True") ? "<img class='img-responsive' src='assets/images/icon-new.png' alt='' />" : "" %></div>--%>
                     <a href='<%# progressTitle(Eval("ProductName")) + "-pci-" + Eval("CategoryID") + "-pi-" + Eval("ProductID") + ".aspx" %>'
-                        class="product-img fullbox-img contain-img">
+                        class="product-img contain-img">
                         <img id="Img1" class="hideo" alt='<%# Eval("ImageName") %>' src='<%# !string.IsNullOrEmpty(Eval("ImageName").ToString()) ? "~/res/product/" + Eval("ImageName") : "~/assets/images/product-img-1.jpg" %>'
                             runat="server" /></a>
                     <h4 class="product-name">

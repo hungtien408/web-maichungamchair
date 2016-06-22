@@ -450,7 +450,7 @@
                                 CssClass="checkbox" />
                         </ItemTemplate>
                     </asp:GridTemplateColumn>
-                    <asp:GridTemplateColumn DataField="IsHot" HeaderText="Hot" SortExpression="IsHot">
+                    <asp:GridTemplateColumn DataField="IsHot" HeaderText="Tiêu biểu" SortExpression="IsHot">
                         <ItemTemplate>
                             <asp:CheckBox ID="chkIsHot" runat="server" Checked='<%# string.IsNullOrEmpty(Eval("IsHot").ToString()) ? false : Eval("IsHot") %>'
                                 CssClass="checkbox" />
@@ -571,7 +571,7 @@
                                                         <td class="left" colspan="2">
                                                             <asp:CheckBox ID="chkIsNew" runat="server" CssClass="checkbox" Text=" Mới" Checked='<%# (Container is GridEditFormInsertItem) ? false : (string.IsNullOrEmpty(Eval("IsNew").ToString()) ? false : Eval("IsNew"))%>' />
                                                             &nbsp;&nbsp;
-                                                            <asp:CheckBox ID="chkIsHot" runat="server" CssClass="checkbox" Text=" Hot" Checked='<%# (Container is GridEditFormInsertItem) ? false : (string.IsNullOrEmpty(Eval("IsHot").ToString()) ? false : Eval("IsHot"))%>' />
+                                                            <asp:CheckBox ID="chkIsHot" runat="server" CssClass="checkbox" Text=" Tiêu biểu" Checked='<%# (Container is GridEditFormInsertItem) ? false : (string.IsNullOrEmpty(Eval("IsHot").ToString()) ? false : Eval("IsHot"))%>' />
                                                             &nbsp;&nbsp;
                                                             <asp:CheckBox ID="chkIsBestSeller" runat="server" CssClass="checkbox" Text=" Bán chạy"
                                                                 Checked='<%# (Container is GridEditFormInsertItem) ? false : Eval("IsBestSeller") %>' />
