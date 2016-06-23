@@ -2,6 +2,13 @@
 }
 (function ($) {
     $(window).load(function () {
+        var max = -1;
+        $(".product-box a.product-img").each(function () {
+            var h = $(this).height();
+            max = h > max ? h : max;
+        });
+        $(".product-box a.product-img").css('line-height', max+'px');
+        $(".product-box a.product-img").css('height', max);
     });
     $(function () {
         myfunload();
@@ -188,6 +195,7 @@ function setHeigthImageOnTab() {
                 });
             }, 100);
         });
+        
     }
 }
 /*===============================*/
