@@ -280,7 +280,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="follow-ft">
-                                    <span>Follow us </span><a href="#">
+                                    <span>Follow us </span><a href="https://www.facebook.com/amchairfurniture/">
                                         <img src="assets/images/follow2.png"></a>
                                 </div>
                             </div>
@@ -292,8 +292,8 @@
                 <div class="container ">
                     <div class="row">
                         <div class="col-md-6 footer-menu">
-                            <a class="home" href="~/" runat="server">Trang chủ</a>|<a href="#">Giới thiệu</a>|<a
-                                href="#">Liên hệ</a>
+                            <a class="home" href="~/" runat="server">Trang chủ</a>|<a href="gioi-thieu.aspx">Giới thiệu</a>|<a
+                                href="lien-he.aspx">Liên hệ</a>
                         </div>
                         <div class="col-md-6">
                             &copy; 2015 - Mai Chung Furniture. All right reserved | <a href="http://www.tranlegroup.com"
