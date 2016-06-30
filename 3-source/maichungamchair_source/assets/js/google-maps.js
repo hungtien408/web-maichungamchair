@@ -6,9 +6,9 @@ var rendererOptions = {
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
 //Thay dia chi web
-var endAddress = "10.77848,106.693589";
+var endAddress = "10.765446,106.672827";
 //Thay toa do
-var lat = 10.77848, long = 106.693589; 
+var lat = 10.765446, long = 106.672827;
 window.onload = function () {
     //init direction
     directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
@@ -41,7 +41,7 @@ window.onload = function () {
         // Creating the content  
         var content = '<div class="box">' +
             '<h4 class="title-2">Am chair</h4>' +
-            '<p><span class="fa fa-map-marker"></span>39 Ngô Gia Tự, Phương 2, Quận 10, Tp.HCM</p>' +            '<p><span class="fa fa-phone"></span>094 456 9394</p>' +            '<p><span class="fa fa-envelope"></span><a href="mailto:chung.furniture@gmail.com">chung.furniture@gmail.com</a></p>' +
+            '<p><span class="fa fa-map-marker"></span>Lầu 1 139 Ngô Gia Tự, Phương 2, Quận 10, Tp.HCM</p>' +            '<p><span class="fa fa-phone"></span>0122 222 9056</p>' +            '<p><span class="fa fa-envelope"></span><a href="mailto:amchair139@gmail.com">amchair139@gmail.com</a></p>' +
         '</div>';
 
         // Setting the content of the InfoWindow
