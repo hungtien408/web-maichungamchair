@@ -135,7 +135,7 @@
                     <div class="slide ">
                         <div class="product-box text-center">
                             <a href='<%# progressTitle(Eval("ProductName")) + "-pci-" + Eval("CategoryID") + "-pi-" + Eval("ProductID") + ".aspx" %>'
-                                class="product-img fullbox-img contain-img">
+                                class="product-img contain-img">
                                 <img id="Img3" class="hideo" alt='<%# Eval("ImageName") %>' src='<%# !string.IsNullOrEmpty(Eval("ImageName").ToString()) ? "~/res/product/" + Eval("ImageName") : "~/assets/images/product-img-1.jpg" %>'
                                     runat="server" />
                                 <span class="icona-plus"><span></span></span></a>

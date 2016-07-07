@@ -66,7 +66,7 @@
         </SelectParameters>
     </asp:ObjectDataSource>
     <div class="pager">
-        <asp:DataPager ID="DataPager1" runat="server" PageSize="6" PagedControlID="lstProduct">
+        <asp:DataPager ID="DataPager1" runat="server" PageSize="9" PagedControlID="lstProduct">
             <Fields>
                 <asp:NextPreviousPagerField ButtonType="Link" ShowFirstPageButton="true" ShowNextPageButton="false"
                     ShowPreviousPageButton="false" ButtonCssClass="first fa fa-backward" RenderDisabledButtonsAsLabels="true"
