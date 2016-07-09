@@ -1,6 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="site.master.cs" Inherits="site" %>
-<%@ Register TagPrefix="asp" Namespace="AjaxControlToolkit" Assembly="AjaxControlToolkit, Version=3.5.40412.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e" %>
 
+<%@ Register TagPrefix="asp" Namespace="AjaxControlToolkit" Assembly="AjaxControlToolkit, Version=3.5.40412.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e" %>
 <!DOCTYPE html>
 <html lang="en">
 <head runat="server">
@@ -75,7 +75,12 @@
         ga('create', 'UA-80327002-1', 'auto');
         ga('send', 'pageview');
  
-</script>
+    </script>
+    <script src="http://uhchat.net/code.php?f=4dad6f"></script>
+    <script lang="javascript">        (function () { var pname = ((document.title != '') ? document.title : document.querySelector('meta[property="og:title"]').getAttribute('content')); var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.src = '//live.vnpgroup.net/js/web_client_box.php?hash=5b1b3ba0c97d13c602b331c892541954&data=eyJzc29faWQiOjM5OTk2OTEsImhhc2giOiI1MTU4OGJmM2RhZTlmNTNlNjZlYmUyOTJmZjY5ZjY0NSJ9&pname=' + pname; var s = document.getElementsByTagName('script'); s[0].parentNode.insertBefore(ga, s[0]); })();</script>
+    <noscript>
+        <a href="http://www.vatgia.com" title="vatgia.com" target="_blank">Tài trợ bởi vatgia.com</a></noscript><noscript><a
+            href="http://vchat.vn" title="vchat.vn" target="_blank">Phát triển bởi vchat.vn</a></noscript>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -92,7 +97,8 @@
                         </div>
                     </div>
                     <div class="header-right">
-                        <a class="panel-a menu-mo mobi-520" href="#menumobile" data-position="true" data-type="false"><span class="fa fa-reorder"></span>menu</a>
+                        <a class="panel-a menu-mo mobi-520" href="#menumobile" data-position="true" data-type="false">
+                            <span class="fa fa-reorder"></span>menu</a>
                         <div class="follow">
                             <a href="https://www.facebook.com/amchairfurniture/">
                                 <img src="assets/images/follow1.png"></a>
@@ -118,7 +124,7 @@
                         <asp:Button ID="btnTimKiem" CssClass="search-btn" runat="server" Text="" OnClick="btnTimKiem_Click" />
                         <div class="search-input">
                             <asp:TextBox ID="searchTextBox" CssClass="search-text" runat="server" Text="Tìm kiếm sản phẩm..."
-                                    onfocus="if(this.value=='Tìm kiếm sản phẩm...')this.value=''" onblur="if(this.value=='')this.value='Tìm kiếm sản phẩm...'"></asp:TextBox>
+                                onfocus="if(this.value=='Tìm kiếm sản phẩm...')this.value=''" onblur="if(this.value=='')this.value='Tìm kiếm sản phẩm...'"></asp:TextBox>
                         </div>
                     </div>
                     <div class="clearfix">
@@ -126,9 +132,9 @@
                     <div class="menu-product desktop-520">
                         <asp:ListView ID="lstMenu" runat="server" DataSourceID="odsMenu" EnableModelValidation="True">
                             <ItemTemplate>
-                                <li><a href='<%# progressTitle(Eval("ProductCategoryName")) + "-pci-" + Eval("ProductCategoryID") + ".aspx" %>'   >
-                                    <img id="Img1" alt='<%# Eval("ImageName") %>' src='<%# !string.IsNullOrEmpty(Eval("ImageName").ToString()) ? "~/res/productcategory/" + Eval("ImageName") : "~/assets/images/menu1.png" %>' runat="server" /><span><%# Eval("ProductCategoryName") %></span>
-                                </a></li>
+                                <li><a href='<%# progressTitle(Eval("ProductCategoryName")) + "-pci-" + Eval("ProductCategoryID") + ".aspx" %>'>
+                                    <img id="Img1" alt='<%# Eval("ImageName") %>' src='<%# !string.IsNullOrEmpty(Eval("ImageName").ToString()) ? "~/res/productcategory/" + Eval("ImageName") : "~/assets/images/menu1.png" %>'
+                                        runat="server" /><span><%# Eval("ProductCategoryName") %></span> </a></li>
                             </ItemTemplate>
                             <LayoutTemplate>
                                 <ul>
@@ -136,8 +142,8 @@
                                 </ul>
                             </LayoutTemplate>
                         </asp:ListView>
-                        <asp:ObjectDataSource ID="odsMenu" runat="server" 
-                            SelectMethod="ProductCategorySelectAll" TypeName="TLLib.ProductCategory">
+                        <asp:ObjectDataSource ID="odsMenu" runat="server" SelectMethod="ProductCategorySelectAll"
+                            TypeName="TLLib.ProductCategory">
                             <SelectParameters>
                                 <asp:Parameter DefaultValue="0" Name="parentID" Type="Int32" />
                                 <asp:Parameter DefaultValue="1" Name="increaseLevelCount" Type="Int32" />
@@ -210,8 +216,10 @@
                                 <div class="col-md-3 col-sm-6 col-xs-6">
                                     <div class="ft-contact">
                                         <a href='<%# progressTitle(Eval("ArticleTitle")) + "-tt-" + Eval("ArticleID") + ".aspx" %>'>
-                                            <img alt='<%# Eval("ImageName") %>' src='<%# !string.IsNullOrEmpty(Eval("ImageName").ToString()) ? "~/res/article/" + Eval("ImageName") : "~/assets/images/icon1.png" %>' runat="server" />
-                                            <span><%# Eval("ArticleTitle")%></span> </a>
+                                            <img alt='<%# Eval("ImageName") %>' src='<%# !string.IsNullOrEmpty(Eval("ImageName").ToString()) ? "~/res/article/" + Eval("ImageName") : "~/assets/images/icon1.png" %>'
+                                                runat="server" />
+                                            <span>
+                                                <%# Eval("ArticleTitle")%></span> </a>
                                     </div>
                                 </div>
                             </ItemTemplate>
@@ -219,8 +227,8 @@
                                 <span runat="server" id="itemPlaceholder" />
                             </LayoutTemplate>
                         </asp:ListView>
-                        <asp:ObjectDataSource ID="odsNews" runat="server" 
-                            SelectMethod="ArticleSelectAll" TypeName="TLLib.Article">
+                        <asp:ObjectDataSource ID="odsNews" runat="server" SelectMethod="ArticleSelectAll"
+                            TypeName="TLLib.Article">
                             <SelectParameters>
                                 <asp:Parameter Name="StartRowIndex" Type="String" />
                                 <asp:Parameter Name="EndRowIndex" Type="String" />
@@ -304,12 +312,12 @@
                 <div class="container ">
                     <div class="row">
                         <div class="col-md-6 footer-menu">
-                            <a class="home" href="~/" runat="server">Trang chủ</a>|<a href="gioi-thieu.aspx">Giới thiệu</a>|<a
-                                href="lien-he.aspx">Liên hệ</a>
+                            <a class="home" href="~/" runat="server">Trang chủ</a>|<a href="gioi-thieu.aspx">Giới
+                                thiệu</a>|<a href="lien-he.aspx">Liên hệ</a>
                         </div>
                         <div class="col-md-6">
                             &copy; 2015 - Mai Chung Furniture. All right reserved | <a href="http://www.tranlegroup.com"
-                                target="_blank">Thiết kế web Trần Lê</a> 
+                                target="_blank">Thiết kế web Trần Lê</a>
                         </div>
                     </div>
                 </div>
@@ -318,16 +326,19 @@
         <!--end footer-->
     </div>
     <!--menumobile-->
-         <div id="menumobile" class="mobile-panel mobilep-left">
-            <div class="close-menu"><a href="#menumobile" class="glyphicon glyphicon-remove-circle">close</a></div>
-            <div class="menu-in">
-                <div class="menu-mobile">
-                    <div class="logo"><a id="A1"  href="~/" runat="server"><img class="img-responsive" src="assets/images/logo.png" alt="logo"/></a></div>
-                    <ul class="menu-nav">  
-                        <li><a id="A2" href="~/" runat="server">Trang chủ<span class="iconar fa fa-chevron-circle-right"></span></a></li>
-                        <li><a href="gioi-thieu.aspx">Giới thiệu<span class="iconar fa fa-chevron-circle-right"></span></a></li>
-                        <li><a href="san-pham.aspx">Sản phẩm<span class="iconar fa fa-chevron-circle-right"></span></a>
-                            <asp:ListView ID="lstMenuMobile" runat="server" DataSourceID="odsMenuMobile" EnableModelValidation="True">
+    <div id="menumobile" class="mobile-panel mobilep-left">
+        <div class="close-menu">
+            <a href="#menumobile" class="glyphicon glyphicon-remove-circle">close</a></div>
+        <div class="menu-in">
+            <div class="menu-mobile">
+                <div class="logo">
+                    <a id="A1" href="~/" runat="server">
+                        <img class="img-responsive" src="assets/images/logo.png" alt="logo" /></a></div>
+                <ul class="menu-nav">
+                    <li><a id="A2" href="~/" runat="server">Trang chủ<span class="iconar fa fa-chevron-circle-right"></span></a></li>
+                    <li><a href="gioi-thieu.aspx">Giới thiệu<span class="iconar fa fa-chevron-circle-right"></span></a></li>
+                    <li><a href="san-pham.aspx">Sản phẩm<span class="iconar fa fa-chevron-circle-right"></span></a>
+                        <asp:ListView ID="lstMenuMobile" runat="server" DataSourceID="odsMenuMobile" EnableModelValidation="True">
                             <ItemTemplate>
                                 <li><a href='<%# progressTitle(Eval("ProductCategoryName")) + "-pci-" + Eval("ProductCategoryID") + ".aspx" %>'>
                                     <%# Eval("ProductCategoryName") %>
@@ -339,8 +350,8 @@
                                 </ul>
                             </LayoutTemplate>
                         </asp:ListView>
-                        <asp:ObjectDataSource ID="odsMenuMobile" runat="server" 
-                            SelectMethod="ProductCategorySelectAll" TypeName="TLLib.ProductCategory">
+                        <asp:ObjectDataSource ID="odsMenuMobile" runat="server" SelectMethod="ProductCategorySelectAll"
+                            TypeName="TLLib.ProductCategory">
                             <SelectParameters>
                                 <asp:Parameter DefaultValue="0" Name="parentID" Type="Int32" />
                                 <asp:Parameter DefaultValue="1" Name="increaseLevelCount" Type="Int32" />
@@ -348,12 +359,12 @@
                                 <asp:Parameter Name="IsShowOnHomePage" Type="String" />
                             </SelectParameters>
                         </asp:ObjectDataSource>
-                        </li>
-                        <li><a href="lien-he.aspx">Liên hệ<span class="iconar fa fa-chevron-circle-right"></span></a></li>
-                    </ul>
-                </div>
+                    </li>
+                    <li><a href="lien-he.aspx">Liên hệ<span class="iconar fa fa-chevron-circle-right"></span></a></li>
+                </ul>
             </div>
         </div>
+    </div>
     <!--menumobile-->
     <div id="sroltop">
         <a class="corner" href="javascript:void(0);"><span class="glyphicon glyphicon-chevron-up">
