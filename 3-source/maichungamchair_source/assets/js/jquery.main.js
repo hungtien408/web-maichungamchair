@@ -1,15 +1,15 @@
 ﻿function pageLoad() {
 }
 (function ($) {
-    $(window).load(function () {
-        var max = -1;
-        $(".product-box a.product-img").each(function () {
-            var h = $(this).height();
-            max = h > max ? h : max;
-        });
-        $(".product-box a.product-img").css('line-height', max+'px');
-        $(".product-box a.product-img").css('height', max);
-    });
+    //$(window).load(function () {
+    //    var max = -1;
+    //    $(".product-box a.product-img").each(function () {
+    //        var h = $(this).height();
+    //        max = h > max ? h : max;
+    //    });
+    //    $(".product-box a.product-img").css('line-height', max+'px');
+    //    $(".product-box a.product-img").css('height', max);
+    //});
     $(function () {
         myfunload();
         mypageload();
@@ -153,9 +153,16 @@ function mypageload() {
 function myListTb() {
     if ($('.product-tb').size() > 0) {
         var producttb = $('.product-tb').imagesLoaded(function () {
+            var max = -1;
+            $(".product-box a.product-img").each(function () {
+                var h = $(this).height();
+                max = h > max ? h : max;
+            });
+            $(".product-box a.product-img").css('line-height', max + 'px');
+            $(".product-box a.product-img").css('height', max);
             producttb.textHeight({
                 activetit: true,
-                listcss: [{ cssname: ".product-img" }, { cssname: ".product-name" }],
+                listcss: [{ cssname: ".product-box" }, { cssname: ".product-img" }, { cssname: ".product-name" }],
                 wpointb: true,
                 //widthpont: 479,
                 desbool: false,
