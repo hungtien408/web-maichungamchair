@@ -184,6 +184,13 @@ function myListTb() {
 function setHeigthImageOnTab() {
     if ($('.product-tab').size() > 0) {
         var producttab = $('.product-tab').imagesLoaded(function () {
+            var max = -1;
+            $(".product-box a.product-img").each(function () {
+                var h = $(this).height();
+                max = h > max ? h : max;
+            });
+            $(".product-box a.product-img").css('line-height', max + 'px');
+            $(".product-box a.product-img").css('height', max);
             producttab.textHeight({
                 activetit: true,
                 listcss: [{ cssname: ".product-img" }, { cssname: ".product-box" }, { cssname: ".product-name" }],
